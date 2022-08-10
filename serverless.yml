@@ -59,6 +59,6 @@ stepFunctions:
       name: lead-purchase-workflow
       events:
         - http:
-            path: 
+            path: lead_purchase_workflow
             method: POST
       definition: ${file(src/workflow.asl.yaml)}
