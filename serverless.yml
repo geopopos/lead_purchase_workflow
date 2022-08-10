@@ -55,7 +55,7 @@ functions:
   
 stepFunctions:
   stateMachines:
-    newLeadIngestion:
+    leadPurchaseWorkflow:
       name: lead-purchase-workflow
       events:
         - http:
