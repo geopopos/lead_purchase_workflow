@@ -40,10 +40,19 @@ plugins:
 functions:
   get_checkout_session:
     handler: src/get_checkout_session.get_checkout_session
+    environment:
+      STRIPE_API_KEY: ${param:STRIPE_API_KEY}
+      STRIPE_TEST_API_KEY: ${param:STRIPE_TEST_API_KEY}
   get_product:
     handler: src/get_product.get_product
+    environment:
+      STRIPE_API_KEY: ${param:STRIPE_API_KEY}
+      STRIPE_TEST_API_KEY: ${param:STRIPE_TEST_API_KEY}
   set_link_inactive:
     handler: src/set_payment_link_active_false.set_payment_link_active_false
+    environment:
+      STRIPE_API_KEY: ${param:STRIPE_API_KEY}
+      STRIPE_TEST_API_KEY: ${param:STRIPE_TEST_API_KEY}
   get_roofer_email:
     handler: src/get_roofer_by_email.get_roofer_by_email
   get_lead:
