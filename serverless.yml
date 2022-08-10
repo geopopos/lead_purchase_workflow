@@ -48,17 +48,17 @@ functions:
     handler: src/get_roofer_by_email.get_roofer_by_email
   get_lead:
     handler: src/get_lead.get_lead
-  create_purchase_record:
+  create_buy_record:
     handler: src/create_purchase_record.create_purchase_record
   lead_d_spawner:
     handler: src/lead_delivery_spawner.lead_delivery_spawner
   
-stepFunctions:
-  stateMachines:
-    newLeadIngestion:
-      name: new-lead-ingestion-workflow
-      events:
-        - http:
-            path: ingest_lead
-            method: POST
-      definition: ${file(src/workflow.asl.yaml)}
+# stepFunctions:
+#   stateMachines:
+#     newLeadIngestion:
+#       name: lead-purchase-workflow
+#       events:
+#         - http:
+#             path: 
+#             method: POST
+#       definition: ${file(src/workflow.asl.yaml)}
