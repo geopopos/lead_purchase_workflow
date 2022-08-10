@@ -53,12 +53,12 @@ functions:
   lead_d_spawner:
     handler: src/lead_delivery_spawner.lead_delivery_spawner
   
-# stepFunctions:
-#   stateMachines:
-#     newLeadIngestion:
-#       name: lead-purchase-workflow
-#       events:
-#         - http:
-#             path: 
-#             method: POST
-#       definition: ${file(src/workflow.asl.yaml)}
+stepFunctions:
+  stateMachines:
+    newLeadIngestion:
+      name: lead-purchase-workflow
+      events:
+        - http:
+            path: 
+            method: POST
+      definition: ${file(src/workflow.asl.yaml)}

@@ -1,10 +1,10 @@
 {
-    "Comment": "Workflow execute when new roofer created",
-    "StartAt": "AddLeadToDynamo",
+    "Comment": "Workflow execute when new lead purchase is made",
+    "StartAt": "GetLeadCheckoutSession",
     "States": {
-        "AddLeadToDynamo": {
+        "GetLeadCheckoutSession": {
             "Type": "Task",
-            "Resource": "arn:aws:lambda:us-east-1:906360379090:function:lead-ingestion-notification-workflow-dev-add_lead_dynamo",
+            "Resource": "arn:aws:lambda:us-east-1:906360379090:function:lead-purchase-workflow-dev-get_checkout_session",
             "Retry": [
                 {
                     "ErrorEquals": ["CustomError"],
@@ -25,11 +25,11 @@
                     "BackoffRate": 2.0
                 }
             ],
-            "Next": "CreateLeadProduct"
+            "Next": "GetLeadProduct"
         },
-        "CreateLeadProduct": {
+        "GetLeadProduct": {
             "Type": "Task",
-            "Resource": "arn:aws:lambda:us-east-1:906360379090:function:lead-ingestion-notification-workflow-dev-create_lead_product",
+            "Resource": "arn:aws:lambda:us-east-1:906360379090:function:lead-purchase-workflow-dev-get_product",
             "Retry": [
                 {
                     "ErrorEquals": ["CustomError"],
@@ -50,11 +50,11 @@
                     "BackoffRate": 2.0
                 }
             ],
-            "Next": "CreateLeadPrice"
+            "Next": "SetPaymentLinkInactive"
         }, 
-        "CreateLeadPrice": {
+        "SetPaymentLinkInactive": {
             "Type": "Task",
-            "Resource": "arn:aws:lambda:us-east-1:906360379090:function:lead-ingestion-notification-workflow-dev-create_lead_price",
+            "Resource": "arn:aws:lambda:us-east-1:906360379090:function:lead-purchase-workflow-dev-set_link_inactive",
             "Retry": [
                 {
                     "ErrorEquals": ["CustomError"],
@@ -75,11 +75,11 @@
                     "BackoffRate": 2.0
                 }
             ],
-            "Next": "CreateLeadPL"
+            "Next": "GetRooferByEmail"
         }, 
-        "CreateLeadPL": {
+        "GetRooferByEmail": {
             "Type": "Task",
-            "Resource": "arn:aws:lambda:us-east-1:906360379090:function:lead-ingestion-notification-workflow-dev-create_lead_pl",
+            "Resource": "arn:aws:lambda:us-east-1:906360379090:function:lead-purchase-workflow-dev-get_roofer_email",
             "Retry": [
                 {
                     "ErrorEquals": ["CustomError"],
@@ -100,11 +100,11 @@
                     "BackoffRate": 2.0
                 }
             ],
-            "Next": "CreateGeocodeAddress"
+            "Next": "GetLead"
         },
-        "CreateGeocodeAddress": {
+        "GetLead": {
             "Type": "Task",
-            "Resource": "arn:aws:lambda:us-east-1:906360379090:function:lead-ingestion-notification-workflow-dev-get_full_address",
+            "Resource": "arn:aws:lambda:us-east-1:906360379090:function:lead-purchase-workflow-dev-get_lead",
             "Retry": [
                 {
                     "ErrorEquals": ["CustomError"],
@@ -125,11 +125,36 @@
                     "BackoffRate": 2.0
                 }
             ],
-            "Next": "LeadNotificationSpawner"
+            "Next": "CreateBuyRecord"
         },
-        "LeadNotificationSpawner": {
+        "CreateBuyRecord": {
             "Type": "Task",
-            "Resource": "arn:aws:lambda:us-east-1:906360379090:function:lead-ingestion-notification-workflow-dev-lead_noti_spawner",
+            "Resource": "arn:aws:lambda:us-east-1:906360379090:function:lead-purchase-workflow-dev-create_buy_record",
+            "Retry": [
+                {
+                    "ErrorEquals": ["CustomError"],
+                    "IntervalSeconds": 1,
+                    "MaxAttempts": 2,
+                    "BackoffRate": 2.0
+                },
+                {
+                    "ErrorEquals": ["States.TaskFailed"],
+                    "IntervalSeconds": 30,
+                    "MaxAttempts": 2,
+                    "BackoffRate": 2.0
+                },
+                {
+                    "ErrorEquals": ["States.ALL"],
+                    "IntervalSeconds": 5,
+                    "MaxAttempts": 5,
+                    "BackoffRate": 2.0
+                }
+            ],
+            "Next": "LeadDeliverySpawner"
+        },
+        "LeadDeliverySpawner": {
+            "Type": "Task",
+            "Resource": "arn:aws:lambda:us-east-1:906360379090:function:lead-purchase-workflow-dev-lead_d_spawner",
             "Retry": [
                 {
                     "ErrorEquals": ["CustomError"],
