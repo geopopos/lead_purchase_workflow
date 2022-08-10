@@ -1,0 +1,236 @@
+{
+    "id": "cs_test_a1FAR73wo0sJ4NSouOnV55YUUZbcAZcLnLgDpjS1qnl7zYA2z1MEvcjhi7",
+    "object": "checkout.session",
+    "after_expiration": "",
+    "allow_promotion_codes": "False",
+    "amount_subtotal": 5000,
+    "amount_total": 5000,
+    "automatic_tax": {
+        "enabled": "False",
+        "status": ""
+    },
+    "billing_address_collection": "auto",
+    "cancel_url": "https://stripe.com",
+    "client_reference_id": "",
+    "consent": "",
+    "consent_collection": "",
+    "currency": "usd",
+    "customer": "",
+    "customer_creation": "if_required",
+    "customer_details": {
+        "address": {
+            "city": "",
+            "country": "US",
+            "line1": "",
+            "line2": "",
+            "postal_code": "21220",
+            "state": ""
+        },
+        "email": "george@volumeup.agency",
+        "name": "Georgios B Roros",
+        "phone": "",
+        "tax_exempt": "",
+        "tax_ids": []
+    },
+    "customer_email": "",
+    "expires_at": 1660171337,
+    "livemode": "False",
+    "locale": "auto",
+    "metadata": {},
+    "mode": "payment",
+    "payment_intent": "pi_3LV18MIzGsM9B9GT0sXnUNJ2",
+    "payment_link": {
+        "id": "plink_1LV17FIzGsM9B9GTJUpgRZh0",
+        "object": "payment_link",
+        "active": false,
+        "after_completion": {
+            "hosted_confirmation": {
+                "custom_message": null
+            },
+            "type": "hosted_confirmation"
+        },
+        "allow_promotion_codes": false,
+        "application_fee_amount": null,
+        "application_fee_percent": null,
+        "automatic_tax": {
+            "enabled": false
+        },
+        "billing_address_collection": "auto",
+        "consent_collection": null,
+        "currency": "usd",
+        "customer_creation": "if_required",
+        "livemode": false,
+        "metadata": {},
+        "on_behalf_of": null,
+        "payment_intent_data": null,
+        "payment_method_collection": "always",
+        "payment_method_types": null,
+        "phone_number_collection": {
+            "enabled": false
+        },
+        "shipping_address_collection": null,
+        "shipping_options": [],
+        "submit_type": "auto",
+        "subscription_data": null,
+        "tax_id_collection": {
+            "enabled": false
+        },
+        "transfer_data": null,
+        "url": "https://buy.stripe.com/test_28o6rU87tgmje9G6os"
+    },
+    "payment_method_options": {},
+    "payment_method_types": [
+        "card",
+        "klarna"
+    ],
+    "payment_status": "paid",
+    "phone_number_collection": {
+        "enabled": "False"
+    },
+    "recovered_from": "",
+    "setup_intent": "",
+    "shipping": "",
+    "shipping_address_collection": "",
+    "shipping_options": [],
+    "shipping_rate": "",
+    "status": "complete",
+    "submit_type": "auto",
+    "subscription": "",
+    "success_url": "https://stripe.com",
+    "total_details": {
+        "amount_discount": 0,
+        "amount_shipping": 0,
+        "amount_tax": 0
+    },
+    "url": "",
+    "checkout_session": {
+        "id": "cs_test_a1FAR73wo0sJ4NSouOnV55YUUZbcAZcLnLgDpjS1qnl7zYA2z1MEvcjhi7",
+        "object": "checkout.session",
+        "after_expiration": null,
+        "allow_promotion_codes": false,
+        "amount_subtotal": 5000,
+        "amount_total": 5000,
+        "automatic_tax": {
+            "enabled": false,
+            "status": null
+        },
+        "billing_address_collection": "auto",
+        "cancel_url": "https://stripe.com",
+        "client_reference_id": null,
+        "consent": null,
+        "consent_collection": null,
+        "currency": "usd",
+        "customer": null,
+        "customer_creation": "if_required",
+        "customer_details": {
+            "address": {
+                "city": null,
+                "country": "US",
+                "line1": null,
+                "line2": null,
+                "postal_code": "21220",
+                "state": null
+            },
+            "email": "george@volumeup.agency",
+            "name": "Georgios B Roros",
+            "phone": null,
+            "tax_exempt": "none",
+            "tax_ids": []
+        },
+        "customer_email": null,
+        "expires_at": 1660171337,
+        "line_items": {
+            "object": "list",
+            "data": [
+                {
+                    "id": "li_1LV17tIzGsM9B9GTKKvMP3UH",
+                    "object": "item",
+                    "amount_discount": 0,
+                    "amount_subtotal": 5000,
+                    "amount_tax": 0,
+                    "amount_total": 5000,
+                    "currency": "usd",
+                    "description": "Lead-Lead#d9fcfd85-df67-42b7-a8d2-4675daf23ed2",
+                    "price": {
+                        "id": "price_1LV17DIzGsM9B9GTfGlGASQk",
+                        "object": "price",
+                        "active": true,
+                        "billing_scheme": "per_unit",
+                        "created": 1660084895,
+                        "currency": "usd",
+                        "custom_unit_amount": null,
+                        "livemode": false,
+                        "lookup_key": null,
+                        "metadata": {},
+                        "nickname": null,
+                        "product": "prod_MDS1ZiyjdWNXgM",
+                        "recurring": null,
+                        "tax_behavior": "unspecified",
+                        "tiers_mode": null,
+                        "transform_quantity": null,
+                        "type": "one_time",
+                        "unit_amount": 5000,
+                        "unit_amount_decimal": "5000"
+                    },
+                    "quantity": 1
+                }
+            ],
+            "has_more": false,
+            "url": "/v1/checkout/sessions/cs_test_a1FAR73wo0sJ4NSouOnV55YUUZbcAZcLnLgDpjS1qnl7zYA2z1MEvcjhi7/line_items"
+        },
+        "livemode": false,
+        "locale": "auto",
+        "metadata": {},
+        "mode": "payment",
+        "payment_intent": "pi_3LV18MIzGsM9B9GT0sXnUNJ2",
+        "payment_link": "plink_1LV17FIzGsM9B9GTJUpgRZh0",
+        "payment_method_options": {},
+        "payment_method_types": [
+            "card",
+            "klarna"
+        ],
+        "payment_status": "paid",
+        "phone_number_collection": {
+            "enabled": false
+        },
+        "recovered_from": null,
+        "setup_intent": null,
+        "shipping": null,
+        "shipping_address_collection": null,
+        "shipping_options": [],
+        "shipping_rate": null,
+        "status": "complete",
+        "submit_type": "auto",
+        "subscription": null,
+        "success_url": "https://stripe.com",
+        "total_details": {
+            "amount_discount": 0,
+            "amount_shipping": 0,
+            "amount_tax": 0
+        },
+        "url": null
+    },
+    "product": {
+        "id": "prod_MDS1ZiyjdWNXgM",
+        "object": "product",
+        "active": true,
+        "attributes": [],
+        "created": 1660084891,
+        "default_price": null,
+        "description": null,
+        "images": [],
+        "livemode": false,
+        "metadata": {
+            "lead_id": "Lead#d9fcfd85-df67-42b7-a8d2-4675daf23ed2"
+        },
+        "name": "Lead-Lead#d9fcfd85-df67-42b7-a8d2-4675daf23ed2",
+        "package_dimensions": null,
+        "shippable": null,
+        "statement_descriptor": null,
+        "tax_code": null,
+        "type": "service",
+        "unit_label": null,
+        "updated": 1660084891,
+        "url": null
+    }
+}

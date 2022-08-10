@@ -1,0 +1,68 @@
+{
+    "id": "cs_test_a1FAR73wo0sJ4NSouOnV55YUUZbcAZcLnLgDpjS1qnl7zYA2z1MEvcjhi7",
+    "object": "checkout.session",
+    "after_expiration": "",
+    "allow_promotion_codes": "False",
+    "amount_subtotal": 5000,
+    "amount_total": 5000,
+    "automatic_tax": {
+        "enabled": "False",
+        "status": ""
+    },
+    "billing_address_collection": "auto",
+    "cancel_url": "https://stripe.com",
+    "client_reference_id": "",
+    "consent": "",
+    "consent_collection": "",
+    "currency": "usd",
+    "customer": "",
+    "customer_creation": "if_required",
+    "customer_details": {
+        "address": {
+            "city": "",
+            "country": "US",
+            "line1": "",
+            "line2": "",
+            "postal_code": "21220",
+            "state": ""
+        },
+        "email": "george@volumeup.agency",
+        "name": "Georgios B Roros",
+        "phone": "",
+        "tax_exempt": "",
+        "tax_ids": []
+    },
+    "customer_email": "",
+    "expires_at": 1660171337,
+    "livemode": "False",
+    "locale": "auto",
+    "metadata": {},
+    "mode": "payment",
+    "payment_intent": "pi_3LV18MIzGsM9B9GT0sXnUNJ2",
+    "payment_link": "plink_1LV17FIzGsM9B9GTJUpgRZh0",
+    "payment_method_options": {},
+    "payment_method_types": [
+        "card",
+        "klarna"
+    ],
+    "payment_status": "paid",
+    "phone_number_collection": {
+        "enabled": "False"
+    },
+    "recovered_from": "",
+    "setup_intent": "",
+    "shipping": "",
+    "shipping_address_collection": "",
+    "shipping_options": [],
+    "shipping_rate": "",
+    "status": "complete",
+    "submit_type": "auto",
+    "subscription": "",
+    "success_url": "https://stripe.com",
+    "total_details": {
+        "amount_discount": 0,
+        "amount_shipping": 0,
+        "amount_tax": 0
+    },
+    "url": ""
+}

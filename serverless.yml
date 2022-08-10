@@ -1,0 +1,64 @@
+org: groros
+app: pay-per-lead-project
+service: lead-purchase-workflow
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: python3.8
+  stage: dev
+  region: us-east-1
+  profile: serverless-admin
+  timeout: 10
+  memorySize: 128 
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action: 
+            - sqs:SendMessage
+            - sqs:GetQueueUrl
+            - sqs:ListQueues
+          Resource: "arn:aws:sqs:us-east-1:906360379090:send-new-lead-notification-dev-jobs"
+        - Effect: Allow
+          Action:
+            - sqs:SendMessage
+            - sqs:GetQueueUrl
+            - sqs:ListQueues
+          Resource: "arn:aws:sqs:us-east-1:906360379090:send-new-lead-notification-email-dev-jobs"
+  environment:
+    SQS_SMS_QUEUE_URL: https://sqs.us-east-1.amazonaws.com/906360379090/send-new-lead-notification-dev-jobs
+    SQS_EMAIL_QUEUE_URL: https://sqs.us-east-1.amazonaws.com/906360379090/send-new-lead-notification-email-dev-jobs
+    REGION_NAME: ${self:provider.region}
+    STAGE: ${self:provider.stage}
+
+plugins:
+  - serverless-python-requirements
+  - serverless-step-functions
+
+functions:
+  get_checkout_session:
+    handler: src/get_checkout_session.get_checkout_session
+  get_product:
+    handler: src/get_product.get_product
+  set_link_inactive:
+    handler: src/set_payment_link_active_false.set_payment_link_active_false
+  get_roofer_email:
+    handler: src/get_roofer_by_email.get_roofer_by_email
+  get_lead:
+    handler: src/get_lead.get_lead
+  create_purchase_record:
+    handler: src/create_purchase_record.create_purchase_record
+  lead_d_spawner:
+    handler: src/lead_delivery_spawner.lead_delivery_spawner
+  
+stepFunctions:
+  stateMachines:
+    newLeadIngestion:
+      name: new-lead-ingestion-workflow
+      events:
+        - http:
+            path: ingest_lead
+            method: POST
+      definition: ${file(src/workflow.asl.yaml)}
